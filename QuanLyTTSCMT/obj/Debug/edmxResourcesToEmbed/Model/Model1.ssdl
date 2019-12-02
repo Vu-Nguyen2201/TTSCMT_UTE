@@ -17,11 +17,11 @@
     <Property Name="TenMay" Type="nvarchar(max)" Nullable="false" />
     <Property Name="NgayNhan" Type="datetime" Nullable="false" />
     <Property Name="NgayGiao" Type="datetime" Nullable="false" />
-    <Property Name="NDSuaChua" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NDSuaChua" Type="nvarchar" MaxLength="2000" Nullable="false" />
     <Property Name="ThanhTien" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IDNguoiNhanMay" Type="int" Nullable="false" />
     <Property Name="IDChuMay" Type="int" Nullable="false" />
-    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="2000" Nullable="false" />
   </EntityType>
   <EntityType Name="NhanVien">
     <Key>

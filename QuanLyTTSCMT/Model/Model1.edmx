@@ -22,11 +22,11 @@
           <Property Name="TenMay" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NgayNhan" Type="datetime" Nullable="false" />
           <Property Name="NgayGiao" Type="datetime" Nullable="false" />
-          <Property Name="NDSuaChua" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NDSuaChua" Type="nvarchar" MaxLength="2000" Nullable="false" />
           <Property Name="ThanhTien" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDNguoiNhanMay" Type="int" Nullable="false" />
           <Property Name="IDChuMay" Type="int" Nullable="false" />
-          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="2000" Nullable="false" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -100,11 +100,11 @@
           <Property Name="TenMay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgayNhan" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NgayGiao" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NDSuaChua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NDSuaChua" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ThanhTien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IDNguoiNhanMay" Type="Int32" Nullable="false" />
           <Property Name="IDChuMay" Type="Int32" Nullable="false" />
-          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_LapTop_KhachHang" FromRole="LapTop" ToRole="KhachHang" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_LapTop_NhanVien" FromRole="LapTop" ToRole="NhanVien" />
         </EntityType>

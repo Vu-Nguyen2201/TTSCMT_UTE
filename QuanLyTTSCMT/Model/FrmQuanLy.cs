@@ -148,7 +148,7 @@ namespace QuanLyTTSCMT.Model
                     Nguoi khachHang = new Nguoi(txtTenKhachHang.Text.Trim(), txtMSSV.Text.Trim(), txtSDT.Text.Trim(), null, null);
                     LaptopRoot mayTinh = new LaptopRoot(txtTenNhanVien.Text.Trim(), txtTenMay.Text.Trim(), txtTenKhachHang.Text.Trim(), timeNgayNhan.Value, new DateTime(), rtbNDSuaChua.Text.Trim(), rtbGhiChu.Text.Trim(), txtThanhTien.Text.Trim());
                     quanLyRoot.NhapDonHang(khachHang, mayTinh, ref idMay);
-                    lblIDMayValue.Text = "ID máy: " + idMay.ToString();
+                    lblIdMay.Text = "ID máy: " + idMay.ToString();
                     MessageBox.Show("Thêm đơn hàng thành công");
                 }
             }
@@ -191,7 +191,6 @@ namespace QuanLyTTSCMT.Model
                             dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.NDSuaChua;
                             dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.GhiChu;
                             dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.ThanhTien;
-
                             MessageBox.Show("Đơn hàng của bạn đã được giao vào lúc " + iteam.NgayGiao.ToString());
                             check = false;
                             break;
