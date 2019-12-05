@@ -21,7 +21,7 @@ namespace QuanLyTTSCMT.Model
         }
         public bool kiemTraSDT(string sdt)
         {
-            if (sdt[0] != '0')
+            if (sdt[0] != '0'||(sdt.Length!=10&&sdt.Length!=11))
                 return false;
             bool kt = true;
             for (int i = 0; i < sdt.Length; i++)
@@ -53,6 +53,7 @@ namespace QuanLyTTSCMT.Model
                     {
                         quanLyRoot = new QuanLyRoot(iteam.Ten, iteam.MSSV, iteam.SDT, iteam.TenTaiKhoan, iteam.MKTaiKhoan);
                         lblNguoiNhanMay.Text = "Người nhận máy: " + iteam.Ten;
+                        
                         //tabQuanLy.TabPages.Remove(tabThongKe);
                         //tabQuanLy.TabPages.Remove(tabThemNhanVien);
                         break;
@@ -61,8 +62,8 @@ namespace QuanLyTTSCMT.Model
                     {
                         quanLyRoot = new QuanLyRoot(iteam.Ten, iteam.MSSV, iteam.SDT, iteam.TenTaiKhoan, iteam.MKTaiKhoan);
                         lblNguoiNhanMay.Text = "Người nhận máy: " + iteam.Ten;
-                        tabQuanLy.TabPages.Remove(tabThongKe);
-                        tabQuanLy.TabPages.Remove(tabThemNhanVien);
+                        tabCaNhan.TabPages.Remove(tabThongKe);
+                        tabCaNhan.TabPages.Remove(tabThemNhanVien);
                         break;
                     }
                 }
@@ -113,6 +114,142 @@ namespace QuanLyTTSCMT.Model
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tabXacNhanTraMay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            btnLuu.Show();
+            cbTraMay.Show();
+            if (txtIdMayNhan.Text.Trim() == "")
+                MessageBox.Show("Bạn hãy nhập ID Máy cần tìm", "Lỗi");
+            else
+            {
+                bool check = true;
+                DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
+                var duLieuKhachHang = from table in data.LapTops select table;
+                foreach (var iteam in duLieuKhachHang)
+                {
+                    if (iteam.ID.ToString() == txtIdMayNhan.Text.Trim())
+                        if (iteam.NgayNhan == iteam.NgayGiao)
+                        {
+                            dgvThongTinDonHang.Rows.Add();
+                            int i = 0;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.TenMay;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.NDSuaChua;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.GhiChu;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.ThanhTien;
+                            check = false;
+                            break;
+                        }
+                        else
+                        {
+                            dgvThongTinDonHang.Rows.Add();
+                            int i = 0;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.TenMay;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.NDSuaChua;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.GhiChu;
+                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.ThanhTien;
+                            MessageBox.Show("Đơn hàng của bạn đã được giao vào lúc " + iteam.NgayGiao.ToString());
+                            check = false;
+                            break;
+                        }
+                }
+                if (check)
+                {
+                    int j = 0;
+                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
+                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
+                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
+                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
+                    MessageBox.Show("Không có đơn hàng nào ứng với ID = " + txtIdMayNhan.Text.Trim(), "Lỗi");
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cbTraMay.Checked)
+            {
+                DateTime datetime = DateTime.Now;
+                DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
+                var duLieuKhachHang = from table in data.LapTops select table;
+                foreach (var iteam in duLieuKhachHang)
+                {
+
+                    if (iteam.ID.ToString() == txtIdMayNhan.Text.Trim())
+                        if (iteam.NgayNhan == iteam.NgayGiao)
+                        {
+                            iteam.NgayGiao = datetime;
+                            MessageBox.Show("Lưu thành công");
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Máy này đã được giao, không thể giao lại");
+                        }
+                }
+                data.SaveChanges();
+                cbTraMay.Checked = false;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach(var iteam in dataThongKe.Rows)
+            {
+                dataThongKe.Rows.Clear();
+            }
+            DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
+            var duLieuKhachHang = from table in data.LapTops select table;
+            int i = 0;
+            Double tongTien = 0;
+            foreach (var iteam in duLieuKhachHang)
+            {
+                int j = 0;
+                if (iteam.NgayGiao.Date >= timeTuNgay.Value.Date && iteam.NgayGiao.Date <= timeDenNgay.Value.Date )
+                {
+                    dataThongKe.Rows.Add();
+                    dataThongKe.Rows[i].Cells[j++].Value = i+1;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.TenMay;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.ID;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.NgayNhan;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.NgayGiao;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.IDChuMay;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.IDNguoiNhanMay;
+                    dataThongKe.Rows[i].Cells[j++].Value = iteam.ThanhTien;
+                    if (iteam.NgayNhan != iteam.NgayGiao)
+                        dataThongKe.Rows[i++].Cells[j++].Value = "Đã Giao";
+                    else
+                        dataThongKe.Rows[i++].Cells[j++].Value = "Đang Sửa";
+                    tongTien += Convert.ToDouble(iteam.ThanhTien);
+                }
+            }
+            lblTongTienValues.Text = tongTien.ToString()+ " VND";
+        }
+
+        private void lblTongTienValues_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabNhapDonHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLuu_Click_1(object sender, EventArgs e)
+        {
             bool check = true;
             if (txtTenKhachHang.Text.Trim() == "" || txtMSSV.Text.Trim() == "" || txtSDT.Text.Trim() == "null" || txtTenMay.Text.Trim() == "" || rtbNDSuaChua.Text.Trim() == "" || rtbGhiChu.Text.Trim() == "" || txtThanhTien.Text.Trim() == "")
                 MessageBox.Show("Bạn phải điền hết thông tin chúng tôi yêu cầu", "Lỗi");
@@ -152,128 +289,16 @@ namespace QuanLyTTSCMT.Model
                     MessageBox.Show("Thêm đơn hàng thành công");
                 }
             }
-
         }
 
-        private void tabXacNhanTraMay_Click(object sender, EventArgs e)
+        private void btnDangXuat_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            (new FrmDangNhap()).ShowDialog();
+            
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            btnLuu.Show();
-            cbTraMay.Show();
-            if (txtIdMayNhan.Text.Trim() == "")
-                MessageBox.Show("Bạn hãy nhập ID Máy cần tìm", "Lỗi");
-            else
-            {
-                bool check = true;
-                DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
-                var duLieuKhachHang = from table in data.LapTops select table;
-                foreach (var iteam in duLieuKhachHang)
-                {
-                    if (iteam.ID.ToString() == txtIdMayNhan.Text.Trim())
-                        if (iteam.NgayNhan == iteam.NgayGiao)
-                        {
-                            int i = 0;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.TenMay;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.NDSuaChua;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.GhiChu;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.ThanhTien;
-                            check = false;
-                            break;
-                        }
-                        else
-                        {
-                            int i = 0;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.TenMay;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.NDSuaChua;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.GhiChu;
-                            dgvThongTinDonHang.Rows[0].Cells[i++].Value = iteam.ThanhTien;
-                            MessageBox.Show("Đơn hàng của bạn đã được giao vào lúc " + iteam.NgayGiao.ToString());
-                            check = false;
-                            break;
-                        }
-                }
-                if (check)
-                {
-                    int j = 0;
-                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
-                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
-                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
-                    dgvThongTinDonHang.Rows[0].Cells[j++].Value = "";
-                    MessageBox.Show("Không có đơn hàng nào ứng với ID = " + txtIdMayNhan.Text.Trim(), "Lỗi");
-                }
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (cbTraMay.Checked)
-            {
-                DateTime datetime = DateTime.Now;
-                DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
-                var duLieuKhachHang = from table in data.LapTops select table;
-                foreach (var iteam in duLieuKhachHang)
-                {
-
-                    if (iteam.ID.ToString() == txtIdMayNhan.Text.Trim())
-                        if (iteam.NgayNhan == iteam.NgayGiao)
-                        {
-                            iteam.NgayGiao = datetime;
-                            break;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Máy này đã được giao, không thể giao lại");
-                        }
-                }
-                data.SaveChanges();
-                cbTraMay.Checked = false;
-                MessageBox.Show("Lưu thành công");
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            foreach(var iteam in dataThongKe.Rows)
-            {
-                dataThongKe.Rows.Clear();
-            }
-            DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
-            var duLieuKhachHang = from table in data.LapTops select table;
-            int i = 0;
-            Double tongTien = 0;
-            foreach (var iteam in duLieuKhachHang)
-            {
-                int j = 0;
-                if (iteam.NgayGiao.Date >= timeTuNgay.Value.Date && iteam.NgayGiao.Date <= timeDenNgay.Value.Date )
-                {
-                    dataThongKe.Rows.Add();
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.ID;
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.TenMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.NgayNhan;
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.NgayGiao;
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.IDChuMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.IDNguoiNhanMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = iteam.ThanhTien;
-                    if (iteam.NgayNhan != iteam.NgayGiao)
-                        dataThongKe.Rows[i++].Cells[j++].Value = "Đã Giao";
-                    else
-                        dataThongKe.Rows[i++].Cells[j++].Value = "Đang Sửa";
-                    tongTien += Convert.ToDouble(iteam.ThanhTien);
-                }
-            }
-            lblTongTienValues.Text = tongTien.ToString()+ " VND";
-        }
-
-        private void lblTongTienValues_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTenKhachHang_TextChanged(object sender, EventArgs e)
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
 
         }
