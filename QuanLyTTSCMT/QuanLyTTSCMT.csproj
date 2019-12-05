@@ -153,6 +153,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\login-symbol_318-9896.jpg" />
+    <None Include="Resources\img_110757.png" />
+    <None Include="Resources\20787339.jpg" />
+    <None Include="Resources\rext2.png" />
+    <None Include="Resources\rext1.png" />
+    <None Include="Resources\rext.png" />
+    <None Include="Resources\anhKhoa.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
