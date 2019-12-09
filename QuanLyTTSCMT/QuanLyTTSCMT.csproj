@@ -62,6 +62,12 @@
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDoiMatKhau.Designer.cs">
+      <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FrmQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\fix1.png" />
     <None Include="Resources\login-symbol_318-9896.jpg" />
     <None Include="Resources\img_110757.png" />
     <None Include="Resources\20787339.jpg" />

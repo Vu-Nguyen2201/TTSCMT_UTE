@@ -57,9 +57,12 @@ namespace QuanLyTTSCMT
                     }
                 }
                 if (!check)
-                    MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi");
+                {
+                    MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMatKhau.Focus();
+                }
                 if (check)
-                    this.Close();
+                    txtTenTaiKhoan.Focus();
             }
         }
 
@@ -93,9 +96,12 @@ namespace QuanLyTTSCMT
                     }
                 }
                 if (!check)
-                    MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi");
+                {
+                    MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMatKhau.Focus();
+                }
                 if (check)
-                    this.Close();
+                    txtTenTaiKhoan.Focus();
             }
         }
 
@@ -127,9 +133,12 @@ namespace QuanLyTTSCMT
                 }
             }
             if (!check)
-                MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi");
+            {
+                MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMatKhau.Focus();
+            }
             if (check)
-                this.Close();
+                txtTenTaiKhoan.Focus();
         }
 
         private void btnDangNhap_KeyDown_1(object sender, KeyEventArgs e)
@@ -162,9 +171,12 @@ namespace QuanLyTTSCMT
                     }
                 }
                 if (!check)
-                    MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi");
+                {
+                    MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    txtMatKhau.Focus();
+                }
                 if (check)
-                    this.Close();
+                    txtTenTaiKhoan.Focus();
             }
         }
 
@@ -196,9 +208,12 @@ namespace QuanLyTTSCMT
                 }
             }
             if (!check)
-                MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi");
+            {
+                MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMatKhau.Focus();
+            }
             if (check)
-                this.Close();
+                txtTenTaiKhoan.Focus();
         }
 
         private void lblTenTaiKhoan_Click(object sender, EventArgs e)
@@ -214,6 +229,11 @@ namespace QuanLyTTSCMT
         private void txtMatKhau_Click(object sender, EventArgs e)
         {
             txtMatKhau.SelectAll();
+        }
+
+        private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

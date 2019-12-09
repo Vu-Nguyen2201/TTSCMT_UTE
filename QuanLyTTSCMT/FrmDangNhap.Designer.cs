@@ -52,9 +52,9 @@
             this.grbDangNhap.Controls.Add(this.txtTenTaiKhoan);
             this.grbDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbDangNhap.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDangNhap.Location = new System.Drawing.Point(12, 336);
+            this.grbDangNhap.Location = new System.Drawing.Point(12, 280);
             this.grbDangNhap.Name = "grbDangNhap";
-            this.grbDangNhap.Size = new System.Drawing.Size(420, 184);
+            this.grbDangNhap.Size = new System.Drawing.Size(420, 175);
             this.grbDangNhap.TabIndex = 5;
             this.grbDangNhap.TabStop = false;
             this.grbDangNhap.Text = "ĐĂNG NHẬP";
@@ -64,9 +64,9 @@
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.BackgroundImage = global::QuanLyTTSCMT.Properties.Resources.img_110757;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(26, 86);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 82);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox2.Size = new System.Drawing.Size(30, 25);
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
@@ -75,9 +75,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BackgroundImage = global::QuanLyTTSCMT.Properties.Resources._20787339;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 45);
+            this.pictureBox1.Location = new System.Drawing.Point(26, 43);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox1.Size = new System.Drawing.Size(30, 25);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -88,10 +88,10 @@
             this.btnDangNhap.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDangNhap.Location = new System.Drawing.Point(26, 122);
+            this.btnDangNhap.Location = new System.Drawing.Point(26, 116);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(371, 36);
+            this.btnDangNhap.Size = new System.Drawing.Size(371, 34);
             this.btnDangNhap.TabIndex = 9;
             this.btnDangNhap.Text = "ĐĂNG NHẬP";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -105,7 +105,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMatKhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau.Location = new System.Drawing.Point(63, 86);
+            this.txtMatKhau.Location = new System.Drawing.Point(63, 82);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
@@ -119,7 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenTaiKhoan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(63, 46);
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(63, 44);
             this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(334, 26);
@@ -129,13 +129,13 @@
             // FrmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::QuanLyTTSCMT.Properties.Resources.rext;
+            this.BackgroundImage = global::QuanLyTTSCMT.Properties.Resources.fix1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(444, 532);
+            this.ClientSize = new System.Drawing.Size(444, 505);
             this.Controls.Add(this.grbDangNhap);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -146,6 +146,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRUNG TÂM SỬA CHỮA MÁY TÍNH - UTE";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDangNhap_KeyDown);
             this.grbDangNhap.ResumeLayout(false);

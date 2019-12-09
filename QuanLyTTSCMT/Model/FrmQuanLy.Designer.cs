@@ -113,9 +113,10 @@
             this.lblTuNgay = new System.Windows.Forms.Label();
             this.timeDenNgay = new System.Windows.Forms.DateTimePicker();
             this.timeTuNgay = new System.Windows.Forms.DateTimePicker();
-            this.tabTaiKhoan = new System.Windows.Forms.TabPage();
-            this.btnDangXuat = new System.Windows.Forms.Button();
-            this.btnDoiMatKhau = new System.Windows.Forms.Button();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.menuTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
+            this.iteamScriptDoiMatKhau = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemScriptDangXuat = new System.Windows.Forms.ToolStripTextBox();
             this.tabCaNhan.SuspendLayout();
             this.tabNhapDonHang.SuspendLayout();
             this.grbThongTinDonHang.SuspendLayout();
@@ -124,7 +125,7 @@
             this.tabThemNhanVien.SuspendLayout();
             this.tabThongKe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataThongKe)).BeginInit();
-            this.tabTaiKhoan.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTenNguoiSuDung
@@ -146,12 +147,11 @@
             this.tabCaNhan.Controls.Add(this.tabXacNhanTraMay);
             this.tabCaNhan.Controls.Add(this.tabThemNhanVien);
             this.tabCaNhan.Controls.Add(this.tabThongKe);
-            this.tabCaNhan.Controls.Add(this.tabTaiKhoan);
             this.tabCaNhan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCaNhan.Location = new System.Drawing.Point(-2, 1);
+            this.tabCaNhan.Location = new System.Drawing.Point(12, 30);
             this.tabCaNhan.Name = "tabCaNhan";
             this.tabCaNhan.SelectedIndex = 0;
-            this.tabCaNhan.Size = new System.Drawing.Size(958, 536);
+            this.tabCaNhan.Size = new System.Drawing.Size(962, 536);
             this.tabCaNhan.TabIndex = 1;
             // 
             // tabGioiThieu
@@ -160,7 +160,7 @@
             this.tabGioiThieu.Location = new System.Drawing.Point(4, 28);
             this.tabGioiThieu.Name = "tabGioiThieu";
             this.tabGioiThieu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGioiThieu.Size = new System.Drawing.Size(950, 504);
+            this.tabGioiThieu.Size = new System.Drawing.Size(954, 504);
             this.tabGioiThieu.TabIndex = 0;
             this.tabGioiThieu.Text = "Giới Thiệu";
             this.tabGioiThieu.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.tabNhapDonHang.Location = new System.Drawing.Point(4, 28);
             this.tabNhapDonHang.Name = "tabNhapDonHang";
             this.tabNhapDonHang.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNhapDonHang.Size = new System.Drawing.Size(950, 504);
+            this.tabNhapDonHang.Size = new System.Drawing.Size(954, 504);
             this.tabNhapDonHang.TabIndex = 1;
             this.tabNhapDonHang.Text = "Nhập đơn hàng";
             this.tabNhapDonHang.UseVisualStyleBackColor = true;
@@ -407,7 +407,7 @@
             this.tabXacNhanTraMay.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabXacNhanTraMay.Location = new System.Drawing.Point(4, 28);
             this.tabXacNhanTraMay.Name = "tabXacNhanTraMay";
-            this.tabXacNhanTraMay.Size = new System.Drawing.Size(950, 504);
+            this.tabXacNhanTraMay.Size = new System.Drawing.Size(954, 504);
             this.tabXacNhanTraMay.TabIndex = 4;
             this.tabXacNhanTraMay.Text = "Xác nhận trả máy";
             this.tabXacNhanTraMay.UseVisualStyleBackColor = true;
@@ -560,7 +560,7 @@
             this.tabThemNhanVien.Location = new System.Drawing.Point(4, 28);
             this.tabThemNhanVien.Name = "tabThemNhanVien";
             this.tabThemNhanVien.Padding = new System.Windows.Forms.Padding(3);
-            this.tabThemNhanVien.Size = new System.Drawing.Size(950, 504);
+            this.tabThemNhanVien.Size = new System.Drawing.Size(954, 504);
             this.tabThemNhanVien.TabIndex = 3;
             this.tabThemNhanVien.Text = "Thêm nhân viên ";
             this.tabThemNhanVien.UseVisualStyleBackColor = true;
@@ -695,7 +695,7 @@
             this.tabThongKe.Location = new System.Drawing.Point(4, 28);
             this.tabThongKe.Name = "tabThongKe";
             this.tabThongKe.Padding = new System.Windows.Forms.Padding(3);
-            this.tabThongKe.Size = new System.Drawing.Size(950, 504);
+            this.tabThongKe.Size = new System.Drawing.Size(954, 504);
             this.tabThongKe.TabIndex = 2;
             this.tabThongKe.Text = "Thống kê";
             this.tabThongKe.UseVisualStyleBackColor = true;
@@ -758,7 +758,7 @@
             this.dataThongKe.Location = new System.Drawing.Point(-1, 53);
             this.dataThongKe.Name = "dataThongKe";
             this.dataThongKe.ReadOnly = true;
-            this.dataThongKe.Size = new System.Drawing.Size(951, 402);
+            this.dataThongKe.Size = new System.Drawing.Size(750, 402);
             this.dataThongKe.TabIndex = 8;
             this.dataThongKe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataThongKe_CellContentClick);
             // 
@@ -876,44 +876,50 @@
             this.timeTuNgay.Size = new System.Drawing.Size(253, 25);
             this.timeTuNgay.TabIndex = 4;
             // 
-            // tabTaiKhoan
+            // menuStrip2
             // 
-            this.tabTaiKhoan.Controls.Add(this.btnDoiMatKhau);
-            this.tabTaiKhoan.Controls.Add(this.btnDangXuat);
-            this.tabTaiKhoan.Location = new System.Drawing.Point(4, 28);
-            this.tabTaiKhoan.Name = "tabTaiKhoan";
-            this.tabTaiKhoan.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTaiKhoan.Size = new System.Drawing.Size(950, 504);
-            this.tabTaiKhoan.TabIndex = 5;
-            this.tabTaiKhoan.Text = "Tài Khoản";
-            this.tabTaiKhoan.UseVisualStyleBackColor = true;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuTaiKhoan,
+            this.iteamScriptDoiMatKhau,
+            this.itemScriptDangXuat});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1053, 30);
+            this.menuStrip2.TabIndex = 2;
+            this.menuStrip2.Text = "menuStrip2";
             // 
-            // btnDangXuat
+            // menuTaiKhoan
             // 
-            this.btnDangXuat.Location = new System.Drawing.Point(6, 6);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(177, 43);
-            this.btnDangXuat.TabIndex = 0;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = true;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            this.menuTaiKhoan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuTaiKhoan.Name = "menuTaiKhoan";
+            this.menuTaiKhoan.Size = new System.Drawing.Size(88, 26);
+            this.menuTaiKhoan.Text = "Tài khoản";
+            this.menuTaiKhoan.Click += new System.EventHandler(this.menuTaiKhoan_Click);
             // 
-            // btnDoiMatKhau
+            // iteamScriptDoiMatKhau
             // 
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(6, 75);
-            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Size = new System.Drawing.Size(177, 43);
-            this.btnDoiMatKhau.TabIndex = 1;
-            this.btnDoiMatKhau.Text = "Đổi mật khẩu";
-            this.btnDoiMatKhau.UseVisualStyleBackColor = true;
+            this.iteamScriptDoiMatKhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iteamScriptDoiMatKhau.Name = "iteamScriptDoiMatKhau";
+            this.iteamScriptDoiMatKhau.Size = new System.Drawing.Size(102, 26);
+            this.iteamScriptDoiMatKhau.Text = "Đổi mật khẩu";
+            this.iteamScriptDoiMatKhau.Click += new System.EventHandler(this.iteamScriptDoiMatKhau_Click);
+            // 
+            // itemScriptDangXuat
+            // 
+            this.itemScriptDangXuat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemScriptDangXuat.Name = "itemScriptDangXuat";
+            this.itemScriptDangXuat.ReadOnly = true;
+            this.itemScriptDangXuat.Size = new System.Drawing.Size(100, 26);
+            this.itemScriptDangXuat.Text = "Đăng xuất";
             // 
             // FrmQuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 520);
+            this.ClientSize = new System.Drawing.Size(1053, 520);
             this.Controls.Add(this.tabCaNhan);
             this.Controls.Add(this.lblTenNguoiSuDung);
+            this.Controls.Add(this.menuStrip2);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -923,6 +929,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QUẢN LÝ TRUNG TÂM SỬA CHỮA MÁY TÍNH FIT - UTE";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmQuanLy_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmQuanLy_FormClosed);
             this.Load += new System.EventHandler(this.FrmQuanLy_Load);
             this.tabCaNhan.ResumeLayout(false);
             this.tabNhapDonHang.ResumeLayout(false);
@@ -937,7 +945,8 @@
             this.tabThongKe.ResumeLayout(false);
             this.tabThongKe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataThongKe)).EndInit();
-            this.tabTaiKhoan.ResumeLayout(false);
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1007,8 +1016,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clNDSuaChua;
         private System.Windows.Forms.DataGridViewTextBoxColumn clGhiChu;
         private System.Windows.Forms.DataGridViewTextBoxColumn clThanhTien;
-        private System.Windows.Forms.TabPage tabTaiKhoan;
-        private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTenMay;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -1018,6 +1025,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIDNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnThanhTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTinhTrang;
-        private System.Windows.Forms.Button btnDoiMatKhau;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem menuTaiKhoan;
+        private System.Windows.Forms.ToolStripMenuItem iteamScriptDoiMatKhau;
+        private System.Windows.Forms.ToolStripTextBox itemScriptDangXuat;
     }
 }

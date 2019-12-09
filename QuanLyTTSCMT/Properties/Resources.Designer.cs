@@ -93,6 +93,16 @@ namespace QuanLyTTSCMT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fix1 {
+            get {
+                object obj = ResourceManager.GetObject("fix1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap img_110757 {
             get {
                 object obj = ResourceManager.GetObject("img_110757", resourceCulture);

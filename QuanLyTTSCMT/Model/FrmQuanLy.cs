@@ -43,7 +43,8 @@ namespace QuanLyTTSCMT.Model
         }
         private void FrmQuanLy_Load(object sender, EventArgs e)
         {
-
+            this.iteamScriptDoiMatKhau.Visible = false;
+            this.itemScriptDangXuat.Visible = false;
             DB_QuanLyTTSCMTEntities newDataBase = new DB_QuanLyTTSCMTEntities();
             var select = from table in newDataBase.NhanViens select table;
             foreach (var iteam in select)
@@ -299,13 +300,7 @@ namespace QuanLyTTSCMT.Model
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            btnDoiMatKhau.Show();
-            DialogResult kq = MessageBox.Show("Bạn có thật sự muốn đăng xuất không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(kq==DialogResult.Yes)
-            {
-                this.Hide();
-                (new FrmDangNhap()).ShowDialog();
-            }
+            
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
@@ -363,6 +358,85 @@ namespace QuanLyTTSCMT.Model
                 }
             }
             
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            //txtDMKMatKhauCu.SelectAll();
+       
+        }
+
+        private void txtDMKMatKhauMoi_Click(object sender, EventArgs e)
+        {
+            //txtDMKMatKhauMoi.SelectAll();
+        }
+
+        private void txtDMKXacNhanMatKhau_Click(object sender, EventArgs e)
+        {
+          //  txtDMKXacNhanMatKhau.SelectAll();
+
+        }
+
+        private void txtDMKLuu_Click(object sender, EventArgs e)
+        {
+            //string mkc = txtDMKMatKhauCu.Text.ToString().Trim();
+            //string mkm = txtDMKMatKhauMoi.Text.ToString().Trim();
+            //string xnmkm = txtDMKXacNhanMatKhau.Text.ToString().Trim();
+            //if (mkc == "" || mkm == "" || xnmkm == "")
+            //    MessageBox.Show("Mời bạn điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //else if (quanLyRoot.MKTaiKhoan != mkc)
+            //    MessageBox.Show("Mật khẩu cũ không chính xác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //else if (mkm != xnmkm)
+            //    MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu mới của bạn không trùng khớp", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //else
+            //{
+            //    quanLyRoot.doiMatKhau(mkm);
+            //    MessageBox.Show("Đổi mật khẩu thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //txtDMKMatKhauCu.Text = "Mật khẩu cũ";
+            //txtDMKMatKhauMoi.Text = "Mật khẩu mới";
+            //txtDMKXacNhanMatKhau.Text = "XN mật khẩu";
+        }
+
+        private void toolStripTextBox1_Click_1(object sender, EventArgs e)
+        {
+            
+            DialogResult kq = MessageBox.Show("Bạn có thật sự muốn đăng xuất không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (kq == DialogResult.Yes)
+            {
+                this.Hide();
+                (new FrmDangNhap()).ShowDialog();
+            }
+        }
+
+        private void menuTaiKhoan_Click(object sender, EventArgs e)
+        {
+            this.iteamScriptDoiMatKhau.Visible = true;
+            this.itemScriptDangXuat.Visible = true;
+        }
+
+        private void iteamScriptDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            (new FrmDoiMatKhau()).ShowDialog();   
+        }
+
+        private void FrmQuanLy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void FrmQuanLy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
