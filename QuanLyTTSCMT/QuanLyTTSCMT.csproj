@@ -108,6 +108,9 @@
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDoiMatKhau.resx">
+      <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FrmQuanLy.resx">
       <DependentUpon>FrmQuanLy.cs</DependentUpon>
     </EmbeddedResource>

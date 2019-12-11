@@ -26,7 +26,7 @@ namespace QuanLyTTSCMT.Model
             MKTaiKhoan = root.MKTaiKhoan;
         }
 
-        public void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan,bool quyenQuanLy)
+        public override void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan,bool quyenQuanLy)
         {
             DB_QuanLyTTSCMTEntities newDataBase = new DB_QuanLyTTSCMTEntities();
             NhanVien newNhanVien = new NhanVien();
@@ -39,18 +39,7 @@ namespace QuanLyTTSCMT.Model
             newDataBase.NhanViens.Add(newNhanVien);
             newDataBase.SaveChanges();
         }
-        public bool kiemTraSDT(string sdt)
-        {
-            if (sdt[0] != '0')
-                return false;
-            bool kt = true;
-            for(int i=0;i<sdt.Length;i++)
-            {
-                if (!char.IsDigit(sdt[i]))
-                    return false;
-            }
-            return kt;
-        }
+        
         public void doiMatKhau(string mKMoi)
         {
           

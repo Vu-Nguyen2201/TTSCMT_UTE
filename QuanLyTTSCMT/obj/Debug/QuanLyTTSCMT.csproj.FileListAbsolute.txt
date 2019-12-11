@@ -93,3 +93,4 @@ D:\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.csproj.GenerateResource.cache
 D:\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.csproj.CopyComplete
 D:\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.exe
 D:\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.pdb
+D:\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.FrmDoiMatKhau.resources

@@ -16,7 +16,7 @@ namespace QuanLyTTSCMT.Model
         {
             quyenQuanLy = true;
         }
-        public NhanVienRoot(QuanLyRoot root) //Cái này dùng cho trường hợp nào?
+        public NhanVienRoot(NhanVienRoot root) //Cái này dùng cho trường hợp nào?
         {
             quyenQuanLy = true;
             Ten = root.Ten;
@@ -24,6 +24,10 @@ namespace QuanLyTTSCMT.Model
             SDT = root.SDT;
             TenTaiKhoan = root.TenTaiKhoan;
             MKTaiKhoan = root.MKTaiKhoan;
+        }
+        public override void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan, bool quyenQuanLy)
+        {
+
         }
     }
 }
