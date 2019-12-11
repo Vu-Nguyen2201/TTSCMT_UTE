@@ -96,8 +96,6 @@
             this.btnDangNhap.Text = "ĐĂNG NHẬP";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click_1);
-            this.btnDangNhap.Enter += new System.EventHandler(this.btnDangNhap_Enter);
-            this.btnDangNhap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnDangNhap_KeyDown_1);
             // 
             // txtMatKhau
             // 
@@ -148,7 +146,7 @@
             this.Text = "TRUNG TÂM SỬA CHỮA MÁY TÍNH - UTE";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDangNhap_KeyDown);
+            this.Enter += new System.EventHandler(this.FrmDangNhap_Enter);
             this.grbDangNhap.ResumeLayout(false);
             this.grbDangNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

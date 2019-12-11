@@ -40,18 +40,18 @@ namespace QuanLyTTSCMT.Model
             newDataBase.SaveChanges();
         }
         
-        public void doiMatKhau(string mKMoi)
-        {
+        //public void doiMatKhau(string mKMoi)
+        //{
           
-            DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
-            var duLieuNhanVien = from table in data.NhanViens select table;
-            foreach (var iteam in duLieuNhanVien)
-                if (iteam.ID == NguoiSuDung.ID)
-                {
-                    iteam.MKTaiKhoan = mKMoi;
-                    break;
-                }
-            data.SaveChanges();
-        }
+        //    DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
+        //    var duLieuNhanVien = from table in data.NhanViens select table;
+        //    foreach (var iteam in duLieuNhanVien)
+        //        if (iteam.ID == NguoiSuDung.ID)
+        //        {
+        //            iteam.MKTaiKhoan = mKMoi;
+        //            break;
+        //        }
+        //    data.SaveChanges();
+        //}
     }
 }
