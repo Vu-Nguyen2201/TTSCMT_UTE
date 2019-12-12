@@ -36,7 +36,6 @@ namespace QuanLyTTSCMT
                     {
                         this.Hide();
                         (new FrmQuanLy()).ShowDialog();
-
                     }
                     else
                     {
@@ -66,7 +65,7 @@ namespace QuanLyTTSCMT
         {
             txtMatKhau.SelectAll();
         }
-        private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmDangNhap_FormClosed(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

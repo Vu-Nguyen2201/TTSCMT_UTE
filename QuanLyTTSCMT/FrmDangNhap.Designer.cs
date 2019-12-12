@@ -144,7 +144,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRUNG TÂM SỬA CHỮA MÁY TÍNH - UTE";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.Enter += new System.EventHandler(this.FrmDangNhap_Enter);
             this.grbDangNhap.ResumeLayout(false);

@@ -151,7 +151,7 @@
             this.tabCaNhan.Location = new System.Drawing.Point(12, 30);
             this.tabCaNhan.Name = "tabCaNhan";
             this.tabCaNhan.SelectedIndex = 0;
-            this.tabCaNhan.Size = new System.Drawing.Size(1029, 536);
+            this.tabCaNhan.Size = new System.Drawing.Size(1029, 483);
             this.tabCaNhan.TabIndex = 1;
             // 
             // tabGioiThieu
@@ -160,7 +160,7 @@
             this.tabGioiThieu.Location = new System.Drawing.Point(4, 28);
             this.tabGioiThieu.Name = "tabGioiThieu";
             this.tabGioiThieu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGioiThieu.Size = new System.Drawing.Size(954, 504);
+            this.tabGioiThieu.Size = new System.Drawing.Size(1021, 451);
             this.tabGioiThieu.TabIndex = 0;
             this.tabGioiThieu.Text = "Giới Thiệu";
             this.tabGioiThieu.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.tabNhapDonHang.Location = new System.Drawing.Point(4, 28);
             this.tabNhapDonHang.Name = "tabNhapDonHang";
             this.tabNhapDonHang.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNhapDonHang.Size = new System.Drawing.Size(954, 504);
+            this.tabNhapDonHang.Size = new System.Drawing.Size(1021, 451);
             this.tabNhapDonHang.TabIndex = 1;
             this.tabNhapDonHang.Text = "Nhập đơn hàng";
             this.tabNhapDonHang.UseVisualStyleBackColor = true;
@@ -413,7 +413,7 @@
             this.tabXacNhanTraMay.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabXacNhanTraMay.Location = new System.Drawing.Point(4, 28);
             this.tabXacNhanTraMay.Name = "tabXacNhanTraMay";
-            this.tabXacNhanTraMay.Size = new System.Drawing.Size(954, 504);
+            this.tabXacNhanTraMay.Size = new System.Drawing.Size(1021, 451);
             this.tabXacNhanTraMay.TabIndex = 4;
             this.tabXacNhanTraMay.Text = "Xác nhận trả máy";
             this.tabXacNhanTraMay.UseVisualStyleBackColor = true;
@@ -574,7 +574,7 @@
             this.tabThemNhanVien.Location = new System.Drawing.Point(4, 28);
             this.tabThemNhanVien.Name = "tabThemNhanVien";
             this.tabThemNhanVien.Padding = new System.Windows.Forms.Padding(3);
-            this.tabThemNhanVien.Size = new System.Drawing.Size(954, 504);
+            this.tabThemNhanVien.Size = new System.Drawing.Size(1021, 451);
             this.tabThemNhanVien.TabIndex = 3;
             this.tabThemNhanVien.Text = "Thêm nhân viên ";
             this.tabThemNhanVien.UseVisualStyleBackColor = true;
@@ -715,7 +715,7 @@
             this.tabThongKe.Location = new System.Drawing.Point(4, 28);
             this.tabThongKe.Name = "tabThongKe";
             this.tabThongKe.Padding = new System.Windows.Forms.Padding(3);
-            this.tabThongKe.Size = new System.Drawing.Size(1021, 504);
+            this.tabThongKe.Size = new System.Drawing.Size(1021, 451);
             this.tabThongKe.TabIndex = 2;
             this.tabThongKe.Text = "Thống kê";
             this.tabThongKe.UseVisualStyleBackColor = true;
@@ -778,7 +778,7 @@
             this.dataThongKe.Location = new System.Drawing.Point(-1, 53);
             this.dataThongKe.Name = "dataThongKe";
             this.dataThongKe.ReadOnly = true;
-            this.dataThongKe.Size = new System.Drawing.Size(1022, 402);
+            this.dataThongKe.Size = new System.Drawing.Size(1022, 349);
             this.dataThongKe.TabIndex = 8;
             this.dataThongKe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataThongKe_CellContentClick);
             // 
