@@ -121,7 +121,6 @@
             this.iteamScriptDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.tabGioiThieu = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tabCaNhan.SuspendLayout();
             this.tabNhapDonHang.SuspendLayout();
             this.grbThongTinDonHang.SuspendLayout();
@@ -1030,22 +1029,11 @@
             this.tabGioiThieu.UseVisualStyleBackColor = true;
             this.tabGioiThieu.Click += new System.EventHandler(this.tabGioiThieu_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(100, 540);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(149, 15);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://www.facebook.com/";
-            // 
             // FrmQuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 557);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tabCaNhan);
             this.Controls.Add(this.lblTenNguoiSuDung);
             this.Controls.Add(this.menuStrip2);
@@ -1162,6 +1150,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clGhiChu;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTinhTrang;
         private System.Windows.Forms.DataGridViewTextBoxColumn clThanhTien;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
