@@ -22,6 +22,8 @@ namespace QuanLyTTSCMT.Model
         public string ThanhTien { get; set; }
         public int IDNguoiNhanMay { get; set; }
         public int IDChuMay { get; set; }
+        public int IDNguoiSuaMay { get; set; }
+        public string TinhTrang { get; set; }
         public string GhiChu { get; set; }
     
         public virtual KhachHang KhachHang { get; set; }

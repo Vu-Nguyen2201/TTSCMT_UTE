@@ -22,6 +22,8 @@
     <Property Name="ThanhTien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IDNguoiNhanMay" Type="Int32" Nullable="false" />
     <Property Name="IDChuMay" Type="Int32" Nullable="false" />
+    <Property Name="IDNguoiSuaMay" Type="Int32" Nullable="false" />
+    <Property Name="TinhTrang" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="GhiChu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="KhachHang" Relationship="Self.FK_LapTop_KhachHang" FromRole="LapTop" ToRole="KhachHang" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK_LapTop_NhanVien" FromRole="LapTop" ToRole="NhanVien" />

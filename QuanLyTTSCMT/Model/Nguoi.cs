@@ -39,11 +39,12 @@ namespace QuanLyTTSCMT.Model
         public bool QuyenQuanLy { get => quyenQuanLy; }
         public void NhapDonHang(Nguoi khachHang, LaptopRoot mayTinh, ref int idMay)
         {
-            DB_QuanLyTTSCMTEntities data = new DB_QuanLyTTSCMTEntities();
+            DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
             LapTop lapTopData = new LapTop();
-            var duLieuKhachHang = from table in data.KhachHangs select table;
+            var duLieuKhachHang = from table in CSDL.KhachHangs select table;
             bool kiemTra = false;
             int idChuMay = 0;
+           
             foreach (var iteam in duLieuKhachHang)
             {
                 if (iteam.MSSV == khachHang.MSSV)
@@ -60,9 +61,9 @@ namespace QuanLyTTSCMT.Model
                 khachHangData.Ten = khachHang.ten;
                 khachHangData.MSSV = khachHang.MSSV;
                 khachHangData.SDT = khachHang.SDT;
-                data.KhachHangs.Add(khachHangData);
-                data.SaveChanges();
-                var duLieuKhachHang1 = from table in data.KhachHangs select table;
+                CSDL.KhachHangs.Add(khachHangData);
+                CSDL.SaveChanges();
+                var duLieuKhachHang1 = from table in CSDL.KhachHangs select table;
                 foreach (var iteam in duLieuKhachHang1)
                 {
                     if (iteam.MSSV == khachHang.MSSV)
@@ -74,6 +75,8 @@ namespace QuanLyTTSCMT.Model
                 }
             }
 
+            
+
             lapTopData.TenMay = mayTinh.TenMayTinh;
             lapTopData.NgayNhan = mayTinh.NgayNhanMay;
             lapTopData.NgayGiao = mayTinh.NgayNhanMay;
@@ -81,9 +84,12 @@ namespace QuanLyTTSCMT.Model
             lapTopData.GhiChu = mayTinh.GhiChu;
             lapTopData.IDNguoiNhanMay = NguoiSuDung.ID;
             lapTopData.ThanhTien = mayTinh.ThanhTien;
-            data.LapTops.Add(lapTopData);
-            data.SaveChanges();
-            var duLieuKhachHang2 = from table in data.LapTops select table;
+            lapTopData.IDNguoiSuaMay = mayTinh.IDNguoiSuaMay;
+            lapTopData.TinhTrang = mayTinh.TinhTrang;
+            lapTopData.IDChuMay = idChuMay;
+            CSDL.LapTops.Add(lapTopData);
+            CSDL.SaveChanges();
+            var duLieuKhachHang2 = from table in CSDL.LapTops select table;
             foreach (var iteam in duLieuKhachHang2)
             {
                 if (iteam.NgayNhan == mayTinh.NgayNhanMay && iteam.NgayNhan == iteam.NgayGiao && iteam.IDChuMay == idChuMay)
@@ -92,62 +98,9 @@ namespace QuanLyTTSCMT.Model
                     break;
                 }
             }
-            //DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
-            //LapTop lapTopData = new LapTop();
-            //var duLieuKhachHang = from bang in CSDL.KhachHangs select bang;
-            //bool kiemTra = false;
-            //int idChuMay = 0;
-            //if (timCacIDMayDuaVaoMSSVChuMay(khachHang.MSSV).Count != 0)
-            //    lapTopData.IDChuMay = Convert.ToInt32(timCacIDMayDuaVaoMSSVChuMay(khachHang.MSSV)[0]);
-            //foreach (var iteam in duLieuKhachHang)
-            //{
-            //    if (iteam.MSSV == khachHang.MSSV)
-            //    {
-            //        kiemTra = true;
-            //        lapTopData.IDChuMay = iteam.ID;
-            //        idChuMay = iteam.ID;
-            //        break;
-            //    }
-            //}
-            //if (!kiemTra)
-            //{
-
-            //    var duLieuMayTinh = from bang in CSDL.KhachHangs select bang;
-            //    foreach (var mayTinh1 in duLieuMayTinh)
-            //    {
-            //        if (mayTinh1.MSSV == khachHang.MSSV)
-            //        {
-            //            lapTopData.IDChuMay = mayTinh1.ID;
-            //            idChuMay = mayTinh1.ID;
-            //            break;
-            //        }
-            //    }
-            //}
-
-            //lapTopData.TenMay = mayTinh.TenMayTinh;
-            //lapTopData.NgayNhan = mayTinh.NgayNhanMay;
-            //lapTopData.NgayGiao = mayTinh.NgayNhanMay;
-            //lapTopData.NDSuaChua = mayTinh.NoiDungSuaChua;
-            //lapTopData.GhiChu = mayTinh.GhiChu;
-            //lapTopData.IDNguoiNhanMay = NguoiSuDung.ID;
-            //lapTopData.ThanhTien = mayTinh.ThanhTien;
-
-            //CSDL.LapTops.Add(lapTopData);
-            //CSDL.SaveChanges();
-            //var duLieuKhachHang2 = from table in CSDL.LapTops select table;
-            //foreach (var iteam in duLieuKhachHang2)
-            //{
-            //    if (iteam.NgayNhan == mayTinh.NgayNhanMay && iteam.NgayNhan == iteam.NgayGiao && iteam.IDChuMay == idChuMay)
-            //    {
-            //        idMay = iteam.ID;
-            //        break;
-            //    }
-            //}
-
-            ////            CSDL.SaveChanges();
 
         }
-        public int timDonHangTheoIDMay(int iD,out string tenMay,out string NDSuaChua,out string GhiChu,out string ThanhTien,out DateTime NgayGiao)
+        public int timDonHangTheoIDMay(int iD,out string tenMay,out string NDSuaChua,out string GhiChu,out string ThanhTien,out DateTime NgayGiao,out string tinhTrang)
         {
             DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
             var duLieuMayTinh = from bang in CSDL.LapTops select bang;
@@ -163,6 +116,7 @@ namespace QuanLyTTSCMT.Model
                         GhiChu = mayTinh.GhiChu;
                         ThanhTien =mayTinh.ThanhTien;
                         NgayGiao = DateTime.Now;
+                        tinhTrang = mayTinh.TinhTrang;
                         return 0;
                     }
                     #endregion
@@ -174,6 +128,7 @@ namespace QuanLyTTSCMT.Model
                         GhiChu = mayTinh.GhiChu;
                         ThanhTien = mayTinh.ThanhTien;
                         NgayGiao = mayTinh.NgayGiao;
+                        tinhTrang = mayTinh.TinhTrang;
                         return 1;
                     }
                 #endregion
@@ -184,6 +139,7 @@ namespace QuanLyTTSCMT.Model
             NDSuaChua = "";
             GhiChu = "";
             ThanhTien = "";
+            tinhTrang = "";
             NgayGiao = DateTime.Now;
             return 2;
             #endregion
@@ -223,6 +179,7 @@ namespace QuanLyTTSCMT.Model
                 if (donHang.ID.ToString() == ID.ToString())
                 {
                     donHang.NgayGiao = datetime;
+                    donHang.TinhTrang = "Đã giao";
                     break;
                 }
                 #endregion
@@ -244,6 +201,8 @@ namespace QuanLyTTSCMT.Model
         public abstract void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan, bool quyenQuanLy);
         public int DoiMatKhau(string matKhauCu,string matKhauMoi,string XNMatKhauMoi)
         {
+            if (matKhauMoi == "" || XNMatKhauMoi == "")
+                return 3;
             bool kiemTra = false;
             DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
             var duLieuNhanVien = from bang in CSDL.NhanViens select bang;
@@ -266,6 +225,15 @@ namespace QuanLyTTSCMT.Model
             if (matKhauMoi != XNMatKhauMoi)
                 return 1;//Mật khẩu mới và xác nhận mật khẩu mới không trùng khớp
             return 2;//Mật khẩu cũ không đúng
+        }
+        public void huyDonHang(int iD)
+        {
+            DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
+            var duLieuMayTinh = from bang in CSDL.LapTops select bang;
+            foreach (var mayTinh in duLieuMayTinh)
+                if (mayTinh.ID == iD)
+                    mayTinh.TinhTrang = "Đã hủy";
+            CSDL.SaveChanges();
         }
     }
 }

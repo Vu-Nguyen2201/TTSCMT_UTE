@@ -22,6 +22,8 @@
           <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
           <ScalarProperty Name="IDNguoiNhanMay" ColumnName="IDNguoiNhanMay" />
           <ScalarProperty Name="IDChuMay" ColumnName="IDChuMay" />
+          <ScalarProperty Name="IDNguoiSuaMay" ColumnName="IDNguoiSuaMay" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
         </MappingFragment>
       </EntityTypeMapping>

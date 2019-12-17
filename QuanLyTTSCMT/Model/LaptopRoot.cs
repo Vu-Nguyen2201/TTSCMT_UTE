@@ -11,17 +11,17 @@ namespace QuanLyTTSCMT.Model
 
         private string tenMayTinh;
         private string tenChuMay;
-        private string tenNV;
         private DateTime ngayNhanMay;
         private DateTime ngayGiaoMay;
         private string noiDungSuaChua;
         private string ghiChu;
         private string thanhTien;
+        private string tinhTrang;
+        private int iDNguoiSuaMay;
         public LaptopRoot() { }
-        public LaptopRoot(string tenNV,string tenMayTinh,string tenChuMay,DateTime ngayNhanMay,DateTime ngayGiaoMay,string noiDungSuaChua,string ghiChu,string thanhTien) 
+        public LaptopRoot(int iDNguoiSuaMay,string tenMayTinh,string tenChuMay,DateTime ngayNhanMay,DateTime ngayGiaoMay,string noiDungSuaChua,string ghiChu,string thanhTien) 
         {
-            TenNV = tenNV;
-
+            IDNguoiSuaMay = iDNguoiSuaMay;
             TenMayTinh = tenMayTinh;
             TenChuMay = tenChuMay;
             NgayNhanMay = ngayNhanMay;
@@ -29,6 +29,7 @@ namespace QuanLyTTSCMT.Model
             NoiDungSuaChua = noiDungSuaChua;
             GhiChu = ghiChu;
             ThanhTien = thanhTien;
+            TinhTrang = "Đang sửa";
         }
         public LaptopRoot(LaptopRoot root)
         {
@@ -40,7 +41,8 @@ namespace QuanLyTTSCMT.Model
             NoiDungSuaChua = root.NoiDungSuaChua;
             GhiChu = root.GhiChu;
             ThanhTien = root.ThanhTien;
-            TenNV = root.TenNV;
+            iDNguoiSuaMay = root.IDNguoiSuaMay;
+            tinhTrang = root.TinhTrang;
         }
 
         public string TenMayTinh { get => tenMayTinh; set => tenMayTinh = value; }
@@ -49,8 +51,9 @@ namespace QuanLyTTSCMT.Model
         public DateTime NgayGiaoMay { get => ngayGiaoMay; set => ngayGiaoMay = value; }
 
         public string ThanhTien { get => thanhTien; set => thanhTien = value; }
-        public string TenNV { get => tenNV; set => tenNV = value; }
         public string NoiDungSuaChua { get => noiDungSuaChua; set => noiDungSuaChua = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }
+        public int IDNguoiSuaMay { get => iDNguoiSuaMay; set => iDNguoiSuaMay = value; }
+        public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
     }
 }

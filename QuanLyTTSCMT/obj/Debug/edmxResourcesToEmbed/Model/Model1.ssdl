@@ -21,6 +21,8 @@
     <Property Name="ThanhTien" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IDNguoiNhanMay" Type="int" Nullable="false" />
     <Property Name="IDChuMay" Type="int" Nullable="false" />
+    <Property Name="IDNguoiSuaMay" Type="int" Nullable="false" />
+    <Property Name="TinhTrang" Type="nvarchar" MaxLength="2000" Nullable="false" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="2000" Nullable="false" />
   </EntityType>
   <EntityType Name="NhanVien">

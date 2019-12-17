@@ -50,6 +50,8 @@ namespace QuanLyTTSCMT
             }
             else if (kq == 1)
                 MessageBox.Show("Xác nhận mật khẩu không trùng khớp", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(kq==3)
+                MessageBox.Show("Mật khẩu mới không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show("Mật khẩu không đúng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

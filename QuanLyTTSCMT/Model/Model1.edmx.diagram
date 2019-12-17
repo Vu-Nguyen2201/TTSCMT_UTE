@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a7d18cfdf4b640d882ec821644ad0d8e" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_QuanLyTTSCMTModel.KhachHang" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+      <Diagram DiagramId="b9d1110df620487c9f1653888ae69ae7" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_QuanLyTTSCMTModel.KhachHang" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_QuanLyTTSCMTModel.LapTop" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_QuanLyTTSCMTModel.NhanVien" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLyTTSCMTModel.NhanVien" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="DB_QuanLyTTSCMTModel.FK_LapTop_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="DB_QuanLyTTSCMTModel.FK_LapTop_NhanVien" ManuallyRouted="false" />
       </Diagram>
