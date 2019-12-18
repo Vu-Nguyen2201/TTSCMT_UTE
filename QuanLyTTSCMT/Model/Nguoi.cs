@@ -8,12 +8,15 @@ namespace QuanLyTTSCMT.Model
 {
     public abstract class Nguoi
     {
+        #region Các thuộc tính
         private string ten;
         private string mSSV;
         private string sDT;
         private string tenTaiKhoan;
         private string mKTaiKhoan;
         protected bool quyenQuanLy;
+        #endregion
+        #region Các hàm tạo
         public Nguoi() { }
         public Nguoi(string ten,string mSSV,string sDT,string tenTaiKhoan,string mKTaiKhoan)
         {
@@ -22,21 +25,24 @@ namespace QuanLyTTSCMT.Model
             SDT = sDT;
             TenTaiKhoan = tenTaiKhoan;
             MKTaiKhoan = mKTaiKhoan;
-        }
 
+        }
         public Nguoi(string ten,string mSSV,string sDT)
         {
             Ten = ten;
             MSSV = mSSV;
             SDT = sDT;
         }
-        
+        #endregion
+        #region Truy xuất các thuộc tính
         public string Ten { get => ten; set => ten = value; }
         public string MSSV { get => mSSV; set => mSSV = value; }
         public string SDT { get => sDT; set => sDT = value; }
         public string TenTaiKhoan { get => tenTaiKhoan; set => tenTaiKhoan = value; }
         public string MKTaiKhoan { get => mKTaiKhoan; set => mKTaiKhoan = value; }
         public bool QuyenQuanLy { get => quyenQuanLy; }
+        #endregion
+        #region Các phương thức thông thường
         public void NhapDonHang(Nguoi khachHang, LaptopRoot mayTinh, ref int idMay)
         {
             DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
@@ -74,9 +80,6 @@ namespace QuanLyTTSCMT.Model
                     }
                 }
             }
-
-            
-
             lapTopData.TenMay = mayTinh.TenMayTinh;
             lapTopData.NgayNhan = mayTinh.NgayNhanMay;
             lapTopData.NgayGiao = mayTinh.NgayNhanMay;
@@ -188,7 +191,7 @@ namespace QuanLyTTSCMT.Model
         }
         public bool kiemTraSDT(string sdt)
         {
-            if (sdt[0] != '0')
+            if (sdt[0] != '0' || sdt.Length!=10)
                 return false;
             bool kt = true;
             for (int i = 0; i < sdt.Length; i++)
@@ -198,7 +201,27 @@ namespace QuanLyTTSCMT.Model
             }
             return kt;
         }
-        public abstract void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan, bool quyenQuanLy);
+        public bool kiemTraTien(string sdt)
+        {
+            bool kt = true;
+            for (int i = 0; i < sdt.Length; i++)
+            {
+                if (!char.IsDigit(sdt[i]))
+                    return false;
+            }
+            return kt;
+        }
+        public bool kiemTraIDNhanVien(string iD)
+        {
+            if (!int.TryParse(iD, out int b))
+                return false;
+            DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
+            var DuLieuNhanVien = from bang in CSDL.NhanViens select bang;
+            foreach (var nhanVien in DuLieuNhanVien)
+                if (nhanVien.ID == Convert.ToInt32(iD))
+                    return true;
+            return false;
+        }
         public int DoiMatKhau(string matKhauCu,string matKhauMoi,string XNMatKhauMoi)
         {
             if (matKhauMoi == "" || XNMatKhauMoi == "")
@@ -232,8 +255,16 @@ namespace QuanLyTTSCMT.Model
             var duLieuMayTinh = from bang in CSDL.LapTops select bang;
             foreach (var mayTinh in duLieuMayTinh)
                 if (mayTinh.ID == iD)
+                {
                     mayTinh.TinhTrang = "Đã hủy";
+                    mayTinh.NgayGiao = DateTime.Now;
+                }
             CSDL.SaveChanges();
         }
+        #endregion
+        #region Các phương thức ảo
+        public abstract List<LaptopRoot> timCacThongTinMayTuNgayBatDauDenNgayKetThuc(DateTime Batdau, DateTime ketThuc);
+        public abstract void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan, bool quyenQuanLy);
+        #endregion
     }
 }

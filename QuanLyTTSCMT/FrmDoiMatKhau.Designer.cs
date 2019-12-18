@@ -131,6 +131,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmDoiMatKhau";
+            this.Load += new System.EventHandler(this.FrmDoiMatKhau_Load);
+            this.Enter += new System.EventHandler(this.FrmDoiMatKhau_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

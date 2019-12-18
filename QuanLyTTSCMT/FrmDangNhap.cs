@@ -17,22 +17,25 @@ namespace QuanLyTTSCMT
         {
             InitializeComponent();
         }
+        #region Form load
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
 
         }
+        #endregion
+        #region Khi ấn nút đăng nhập
         private void btnDangNhap_Click_1(object sender, EventArgs e)
         {
-            DB_QuanLyTTSCMTEntities newDataBase = new DB_QuanLyTTSCMTEntities();
-            var select = from table in newDataBase.NhanViens select table;
-            bool check = false;
-            foreach (var iteam in select)
+            DB_QuanLyTTSCMTEntities CSDL = new DB_QuanLyTTSCMTEntities();
+            var duLieuNhanVien = from bang in CSDL.NhanViens select bang;
+            bool kiemTra = false;
+            foreach (var nhanVien in duLieuNhanVien)
             {
-                if (iteam.TenTaiKhoan.ToString() == txtTenTaiKhoan.Text && iteam.MKTaiKhoan.ToString() == txtMatKhau.Text)
+                if (nhanVien.TenTaiKhoan == txtTenTaiKhoan.Text.Trim() && nhanVien.MKTaiKhoan == txtMatKhau.Text.Trim())
                 {
-                    NguoiSuDung.ID = iteam.ID;
-                    check = true;
-                    if (iteam.LaQuanLy == true)
+                    NguoiSuDung.ID = nhanVien.ID;
+                    kiemTra = true;
+                    if (nhanVien.LaQuanLy == true)
                     {
                         this.Hide();
                         (new FrmQuanLy()).ShowDialog();
@@ -46,17 +49,21 @@ namespace QuanLyTTSCMT
                     break;
                 }
             }
-            if (!check)
+            if (!kiemTra)
             {
                 MessageBox.Show("Sai mật khấu hoặc tên tài khoản", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMatKhau.Focus();
             }
-            if (check) txtTenTaiKhoan.Focus();
+            if (kiemTra) txtTenTaiKhoan.Focus();
         }
+        #endregion
+        #region Khi ấn enter
         private void FrmDangNhap_Enter(object sender, EventArgs e)
         {
             btnDangNhap_Click_1(sender, e);
         }
+        #endregion
+        #region Một số sự kiện hỗ trợ
         private void txtTenTaiKhoan_Click(object sender, EventArgs e)
         {
             txtTenTaiKhoan.SelectAll();
@@ -69,5 +76,6 @@ namespace QuanLyTTSCMT
         {
             Application.Exit();
         }
+        #endregion
     }
 }
