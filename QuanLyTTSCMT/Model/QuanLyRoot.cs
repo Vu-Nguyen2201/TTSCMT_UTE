@@ -27,19 +27,7 @@ namespace QuanLyTTSCMT.Model
             
         }
 
-        public override void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan,bool quyenQuanLy)
-        {
-            DB_QuanLyTTSCMTEntities newDataBase = new DB_QuanLyTTSCMTEntities();
-            NhanVien newNhanVien = new NhanVien();
-            newNhanVien.Ten = ten;
-            newNhanVien.MSSV = mSSV;
-            newNhanVien.SDT = sDT;
-            newNhanVien.TenTaiKhoan = tenTaiKhoan;
-            newNhanVien.MKTaiKhoan = mKTaiKhoan;
-            newNhanVien.LaQuanLy = quyenQuanLy;
-            newDataBase.NhanViens.Add(newNhanVien);
-            newDataBase.SaveChanges();
-        }
+        
         #endregion
         #region Override lại các phương thức ảo của lớp cha
         public override List<LaptopRoot> timCacThongTinMayTuNgayBatDauDenNgayKetThuc(DateTime Batdau, DateTime ketThuc)
@@ -51,11 +39,24 @@ namespace QuanLyTTSCMT.Model
             {
                 if (mayTinh.NgayNhan.Date >= Batdau.Date && mayTinh.NgayNhan.Date <= ketThuc.Date)
                 {
-                    LaptopRoot mayTinhMoi = new LaptopRoot(mayTinh.IDNguoiSuaMay, mayTinh.IDChuMay, mayTinh.IDNguoiNhanMay, mayTinh.TenMay, mayTinh.ID, "", mayTinh.NgayNhan, mayTinh.NgayGiao, mayTinh.NDSuaChua, mayTinh.GhiChu, mayTinh.ThanhTien);
+                    LaptopRoot mayTinhMoi = new LaptopRoot(mayTinh.IDNguoiSuaMay, mayTinh.IDChuMay, mayTinh.IDNguoiNhanMay, mayTinh.TenMay, mayTinh.ID, "", mayTinh.NgayNhan, mayTinh.NgayGiao, mayTinh.NDSuaChua, mayTinh.GhiChu, mayTinh.ThanhTien,mayTinh.TinhTrang);
                     may.Add(mayTinhMoi);
                 }
             }
             return may;
+        }
+        public override void themNhanVien(string ten, string mSSV, string sDT, string tenTaiKhoan, string mKTaiKhoan, bool quyenQuanLy)
+        {
+            DB_QuanLyTTSCMTEntities newDataBase = new DB_QuanLyTTSCMTEntities();
+            NhanVien newNhanVien = new NhanVien();
+            newNhanVien.Ten = ten;
+            newNhanVien.MSSV = mSSV;
+            newNhanVien.SDT = sDT;
+            newNhanVien.TenTaiKhoan = tenTaiKhoan;
+            newNhanVien.MKTaiKhoan = mKTaiKhoan;
+            newNhanVien.LaQuanLy = quyenQuanLy;
+            newDataBase.NhanViens.Add(newNhanVien);
+            newDataBase.SaveChanges();
         }
         #endregion
     }

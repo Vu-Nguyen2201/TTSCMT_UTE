@@ -8,6 +8,7 @@ namespace QuanLyTTSCMT.Model
 {
     public static class NguoiSuDung
     {
+
         private static int iD;
         public static int ID { get => iD; set => iD = value; }
     }

@@ -24,7 +24,7 @@ namespace QuanLyTTSCMT.Model
         #endregion
         #region Các hàm tạo
         public LaptopRoot() { }
-        public LaptopRoot(int iDNguoiSuaMay,int iDChuMay,int iDNguoiNhanMay,string tenMayTinh,int iD,string tenChuMay,DateTime ngayNhanMay,DateTime ngayGiaoMay,string noiDungSuaChua,string ghiChu,string thanhTien) 
+        public LaptopRoot(int iDNguoiSuaMay,int iDChuMay,int iDNguoiNhanMay,string tenMayTinh,int iD,string tenChuMay,DateTime ngayNhanMay,DateTime ngayGiaoMay,string noiDungSuaChua,string ghiChu,string thanhTien,string tinhTrang) 
         {
             IDNguoiSuaMay = iDNguoiSuaMay;
             TenMayTinh = tenMayTinh;
@@ -37,7 +37,7 @@ namespace QuanLyTTSCMT.Model
             IDChuMay = iDChuMay;
             IDNguoiNhanMay = iDNguoiNhanMay;
             ThanhTien = thanhTien;
-            TinhTrang = "Đang sửa";
+            TinhTrang = tinhTrang;
         }
         public LaptopRoot(LaptopRoot root)
         {

@@ -23,6 +23,8 @@ namespace QuanLyTTSCMT.Model
         #region Form load
         private void FrmQuanLy_Load(object sender, EventArgs e)
         {
+
+            btnThongKe.Visible = false;
             btnTraMay.Visible = false;
             btnHuyDonHang.Visible = false;
             this.iteamScriptDoiMatKhau.Visible = false;
@@ -106,7 +108,7 @@ namespace QuanLyTTSCMT.Model
                 {
                     int idMay = 0;
                     NhanVienRoot khachHang = new NhanVienRoot(tenKhachHang, mSSV, sDT, null, null);
-                    LaptopRoot mayTinh = new LaptopRoot(Convert.ToInt32(iDNhanVienSuaMay),-1,-1, tenMay,-1, tenKhachHang, timeNgayNhan.Value, new DateTime(), nDSuaChua, ghiChu, thanhTien);
+                    LaptopRoot mayTinh = new LaptopRoot(Convert.ToInt32(iDNhanVienSuaMay),-1,-1, tenMay,-1, tenKhachHang, timeNgayNhan.Value, new DateTime(), nDSuaChua, ghiChu, thanhTien,"Đang sửa");
                     NguoiSuDungRoot.NhapDonHang(khachHang, mayTinh, ref idMay);
                     lblIdMay.Text = "ID máy: " + idMay.ToString();
                     MessageBox.Show("Thêm đơn hàng thành công");
@@ -300,46 +302,66 @@ namespace QuanLyTTSCMT.Model
             #endregion
         }
         #endregion
-        #region Nút thống kê trong tab Thống kê
+        #region Bảng thống kê trong tab Thống kê
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Double tongTien = 0;
             dataThongKe.Rows.Clear();
             #region Kiểm tra xem dữ liệu từ form có đúng không
-            if (timeTuNgay.Value.Date > timeDenNgay.Value.Date)
+            string loaiTinhTrang = cbbLoaiTinhTrang.Text.Trim();
 
-                MessageBox.Show("Số ngày của bạn không hợp lệ", "lỗi");
+            if (timeTuNgay.Value.Date > timeDenNgay.Value.Date || timeDenNgay.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("Số ngày của bạn không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (loaiTinhTrang == "")
+                MessageBox.Show("Bạn phải chọn loại tình trạng để thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             #endregion
             #region Sử dụng phương thức timCacThongTinMayTuNgayBatDauDenNgayKetThuc để tìm các máy trong khoảng cần tìm và đưa dữ liệu lên form
             else
             {
                 int i = 0;
-                Double tongTien = 0;
                 foreach (var mayTinh in NguoiSuDungRoot.timCacThongTinMayTuNgayBatDauDenNgayKetThuc(timeTuNgay.Value.Date, timeDenNgay.Value.Date))
                 {
                     int j = 0;
-                    dataThongKe.Rows.Add();
-                    dataThongKe.Rows[i].Cells[j++].Value = i + 1;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.TenMayTinh;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.ID;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.NgayNhanMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.NgayGiaoMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.IDChuMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.IDNguoiNhanMay;
-                    dataThongKe.Rows[i].Cells[j++].Value = mayTinh.ThanhTien;
-                    dataThongKe.Rows[i++].Cells[j++].Value = mayTinh.TinhTrang;
-                    #region Tính tổng tiền các máy đã giao
-                    if (mayTinh.TinhTrang == "Đã giao")
-                        tongTien += Convert.ToDouble(mayTinh.ThanhTien);
-                    #endregion
+                    if (mayTinh.TinhTrang == loaiTinhTrang || loaiTinhTrang == "Tất cả")
+                    {
+                        dataThongKe.Rows.Add();
+                        dataThongKe.Rows[i].Cells[j++].Value = i + 1;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.TenMayTinh;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.ID;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.NgayNhanMay;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.NgayGiaoMay;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.IDChuMay;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.IDNguoiNhanMay;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.IDNguoiSuaMay;
+                        dataThongKe.Rows[i].Cells[j++].Value = mayTinh.ThanhTien;
+                        dataThongKe.Rows[i++].Cells[j++].Value = mayTinh.TinhTrang;
+                        #region Tính tổng tiền các máy đã giao
+                        if (mayTinh.TinhTrang == "Đã giao")
+                            tongTien += Convert.ToDouble(mayTinh.ThanhTien);
+                        #endregion
+                    }
+                    
 
                 }
-                #region Xuất ra form tổng tiền các máy đã giao
-                lblTongTienValues.Text = tongTien.ToString() + " VND";
-                #endregion
+                if (i == 0)
+                    if (loaiTinhTrang == "Tất cả")
+                        MessageBox.Show("Từ " + timeTuNgay.Value + " đến " + timeDenNgay.Value + " không có đơn hàng nào được thêm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Từ " + timeTuNgay.Value + " đến " + timeDenNgay.Value + " không có đơn hàng nào có loại " + loaiTinhTrang, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             #endregion
+            #region Xuất ra form tổng tiền các máy đã giao
+            lblTongTienValues.Text = tongTien.ToString() + " VND";
+            #endregion
 
+        }
+        private void cbbLoaiTinhTrang_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            button2_Click(sender, e);
+            
         }
         #endregion
         #region Nút tài khoản
@@ -434,10 +456,15 @@ namespace QuanLyTTSCMT.Model
 
         private void timeTuNgay_ValueChanged(object sender, EventArgs e)
         {
+
             button2_Click(sender, e);
         }
         #endregion
         #region Những sự kiện không mong muốn 
+        private void cbbLoaiTinhTrang_ValueMemberChanged(object sender, EventArgs e)
+        {
+
+        }
         private void dataThongKe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -757,7 +784,10 @@ namespace QuanLyTTSCMT.Model
         {
 
         }
+
         #endregion
+
+
     }
 }
 

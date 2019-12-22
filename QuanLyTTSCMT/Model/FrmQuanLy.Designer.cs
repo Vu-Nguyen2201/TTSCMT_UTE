@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,6 +37,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuanLy));
             this.lblTenNguoiSuDung = new System.Windows.Forms.Label();
             this.tabCaNhan = new System.Windows.Forms.TabControl();
@@ -76,11 +76,6 @@
             this.cbBLoaiTimKiem = new System.Windows.Forms.ComboBox();
             this.btnTraMay = new System.Windows.Forms.Button();
             this.dgvThongTinDonHang = new System.Windows.Forms.DataGridView();
-            this.clTenMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clNDSuaChua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtIDMHoacMSSV = new System.Windows.Forms.TextBox();
             this.lblTimKiemTheo = new System.Windows.Forms.Label();
@@ -100,8 +95,10 @@
             this.lblMSSV = new System.Windows.Forms.Label();
             this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.tabThongKe = new System.Windows.Forms.TabPage();
+            this.cbbLoaiTinhTrang = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblTongTienValues = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.dataThongKe = new System.Windows.Forms.DataGridView();
             this.clmSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +108,7 @@
             this.ColumnNgayGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDChuMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnIDNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmIDNVSuaMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDenNgay = new System.Windows.Forms.Label();
@@ -121,6 +119,11 @@
             this.iteamScriptDoiMatKhau = new System.Windows.Forms.ToolStripMenuItem();
             this.iteamScriptDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.clTenMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNDSuaChua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCaNhan.SuspendLayout();
             this.tabNhapDonHang.SuspendLayout();
             this.grbThongTinDonHang.SuspendLayout();
@@ -539,62 +542,12 @@
             this.dgvThongTinDonHang.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvThongTinDonHang.RowTemplate.Height = 40;
             this.dgvThongTinDonHang.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvThongTinDonHang.Size = new System.Drawing.Size(892, 325);
+            this.dgvThongTinDonHang.Size = new System.Drawing.Size(951, 325);
             this.dgvThongTinDonHang.TabIndex = 10;
             this.dgvThongTinDonHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinDonHang_CellClick);
             this.dgvThongTinDonHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinDonHang_CellContentClick);
             this.dgvThongTinDonHang.SelectionChanged += new System.EventHandler(this.dgvThongTinDonHang_SelectionChanged);
             this.dgvThongTinDonHang.Click += new System.EventHandler(this.dgvThongTinDonHang_Click);
-            // 
-            // clTenMay
-            // 
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clTenMay.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clTenMay.FillWeight = 52.76796F;
-            this.clTenMay.HeaderText = "Tên máy";
-            this.clTenMay.Name = "clTenMay";
-            this.clTenMay.ReadOnly = true;
-            this.clTenMay.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.clTenMay.Width = 112;
-            // 
-            // clNDSuaChua
-            // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clNDSuaChua.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clNDSuaChua.FillWeight = 128.2357F;
-            this.clNDSuaChua.HeaderText = "Nội dung sửa chữa";
-            this.clNDSuaChua.Name = "clNDSuaChua";
-            this.clNDSuaChua.ReadOnly = true;
-            this.clNDSuaChua.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.clNDSuaChua.Width = 150;
-            // 
-            // clGhiChu
-            // 
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clGhiChu.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clGhiChu.FillWeight = 116.4632F;
-            this.clGhiChu.HeaderText = "Ghi chú";
-            this.clGhiChu.Name = "clGhiChu";
-            this.clGhiChu.ReadOnly = true;
-            this.clGhiChu.Width = 150;
-            // 
-            // clmTinhTrang
-            // 
-            this.clmTinhTrang.FillWeight = 150F;
-            this.clmTinhTrang.HeaderText = "Tình trạng";
-            this.clmTinhTrang.Name = "clmTinhTrang";
-            this.clmTinhTrang.ReadOnly = true;
-            this.clmTinhTrang.Width = 150;
-            // 
-            // clThanhTien
-            // 
-            this.clThanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clThanhTien.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clThanhTien.FillWeight = 102.5331F;
-            this.clThanhTien.HeaderText = "Thành Tiền (VNĐ)";
-            this.clThanhTien.Name = "clThanhTien";
-            this.clThanhTien.ReadOnly = true;
             // 
             // btnTimKiem
             // 
@@ -792,8 +745,10 @@
             // 
             // tabThongKe
             // 
+            this.tabThongKe.Controls.Add(this.cbbLoaiTinhTrang);
+            this.tabThongKe.Controls.Add(this.button1);
             this.tabThongKe.Controls.Add(this.lblTongTienValues);
-            this.tabThongKe.Controls.Add(this.button2);
+            this.tabThongKe.Controls.Add(this.btnThongKe);
             this.tabThongKe.Controls.Add(this.lblTongTien);
             this.tabThongKe.Controls.Add(this.dataThongKe);
             this.tabThongKe.Controls.Add(this.lblDenNgay);
@@ -810,6 +765,31 @@
             this.tabThongKe.UseVisualStyleBackColor = true;
             this.tabThongKe.Click += new System.EventHandler(this.tabThongKe_Click);
             // 
+            // cbbLoaiTinhTrang
+            // 
+            this.cbbLoaiTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLoaiTinhTrang.Items.AddRange(new object[] {
+            "Đã giao",
+            "Đã hủy",
+            "Đang sửa",
+            "Tất cả"});
+            this.cbbLoaiTinhTrang.Location = new System.Drawing.Point(891, 11);
+            this.cbbLoaiTinhTrang.Name = "cbbLoaiTinhTrang";
+            this.cbbLoaiTinhTrang.Size = new System.Drawing.Size(127, 25);
+            this.cbbLoaiTinhTrang.Sorted = true;
+            this.cbbLoaiTinhTrang.TabIndex = 14;
+            this.cbbLoaiTinhTrang.ValueMemberChanged += new System.EventHandler(this.cbbLoaiTinhTrang_ValueMemberChanged);
+            this.cbbLoaiTinhTrang.SelectedValueChanged += new System.EventHandler(this.cbbLoaiTinhTrang_SelectedValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(769, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 25);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Loại tình trạng";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // lblTongTienValues
             // 
             this.lblTongTienValues.AutoSize = true;
@@ -821,15 +801,15 @@
             this.lblTongTienValues.Text = "0 VNĐ";
             this.lblTongTienValues.Click += new System.EventHandler(this.lblTongTienValues_Click_1);
             // 
-            // button2
+            // btnThongKe
             // 
-            this.button2.Location = new System.Drawing.Point(785, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 47);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Thống kê";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnThongKe.Location = new System.Drawing.Point(1005, 16);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(10, 10);
+            this.btnThongKe.TabIndex = 6;
+            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.button2_Click);
             // 
             // lblTongTien
             // 
@@ -865,12 +845,13 @@
             this.ColumnNgayGiao,
             this.IDChuMay,
             this.ColumnIDNhanVien,
+            this.ClmIDNVSuaMay,
             this.columnThanhTien,
             this.clTinhTrang});
             this.dataThongKe.Location = new System.Drawing.Point(-1, 53);
             this.dataThongKe.Name = "dataThongKe";
             this.dataThongKe.ReadOnly = true;
-            this.dataThongKe.Size = new System.Drawing.Size(1022, 349);
+            this.dataThongKe.Size = new System.Drawing.Size(1022, 379);
             this.dataThongKe.TabIndex = 8;
             this.dataThongKe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataThongKe_CellContentClick);
             // 
@@ -917,7 +898,7 @@
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnNgayGiao.DefaultCellStyle = dataGridViewCellStyle11;
             this.ColumnNgayGiao.Frozen = true;
-            this.ColumnNgayGiao.HeaderText = "Ngày Giao";
+            this.ColumnNgayGiao.HeaderText = "Ngày Giao/Hủy";
             this.ColumnNgayGiao.Name = "ColumnNgayGiao";
             this.ColumnNgayGiao.ReadOnly = true;
             this.ColumnNgayGiao.Width = 110;
@@ -937,6 +918,13 @@
             this.ColumnIDNhanVien.Name = "ColumnIDNhanVien";
             this.ColumnIDNhanVien.ReadOnly = true;
             // 
+            // ClmIDNVSuaMay
+            // 
+            this.ClmIDNVSuaMay.Frozen = true;
+            this.ClmIDNVSuaMay.HeaderText = "ID NV Sửa Máy";
+            this.ClmIDNVSuaMay.Name = "ClmIDNVSuaMay";
+            this.ClmIDNVSuaMay.ReadOnly = true;
+            // 
             // columnThanhTien
             // 
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -945,7 +933,7 @@
             this.columnThanhTien.HeaderText = "Thành Tiền(VNĐ)";
             this.columnThanhTien.Name = "columnThanhTien";
             this.columnThanhTien.ReadOnly = true;
-            this.columnThanhTien.Width = 150;
+            this.columnThanhTien.Width = 130;
             // 
             // clTinhTrang
             // 
@@ -959,7 +947,7 @@
             // lblDenNgay
             // 
             this.lblDenNgay.AutoSize = true;
-            this.lblDenNgay.Location = new System.Drawing.Point(352, 16);
+            this.lblDenNgay.Location = new System.Drawing.Point(326, 16);
             this.lblDenNgay.Name = "lblDenNgay";
             this.lblDenNgay.Size = new System.Drawing.Size(78, 17);
             this.lblDenNgay.TabIndex = 7;
@@ -978,15 +966,15 @@
             // 
             // timeDenNgay
             // 
-            this.timeDenNgay.Location = new System.Drawing.Point(436, 10);
+            this.timeDenNgay.Location = new System.Drawing.Point(404, 10);
             this.timeDenNgay.Name = "timeDenNgay";
-            this.timeDenNgay.Size = new System.Drawing.Size(298, 25);
+            this.timeDenNgay.Size = new System.Drawing.Size(251, 25);
             this.timeDenNgay.TabIndex = 5;
             this.timeDenNgay.ValueChanged += new System.EventHandler(this.timeDenNgay_ValueChanged);
             // 
             // timeTuNgay
             // 
-            this.timeTuNgay.Location = new System.Drawing.Point(76, 10);
+            this.timeTuNgay.Location = new System.Drawing.Point(70, 10);
             this.timeTuNgay.Name = "timeTuNgay";
             this.timeTuNgay.Size = new System.Drawing.Size(253, 25);
             this.timeTuNgay.TabIndex = 4;
@@ -1004,7 +992,7 @@
             // 
             this.iteamScriptDoiMatKhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iteamScriptDoiMatKhau.Name = "iteamScriptDoiMatKhau";
-            this.iteamScriptDoiMatKhau.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.iteamScriptDoiMatKhau.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.iteamScriptDoiMatKhau.Size = new System.Drawing.Size(102, 23);
             this.iteamScriptDoiMatKhau.Text = "Đổi mật khẩu";
             this.iteamScriptDoiMatKhau.Click += new System.EventHandler(this.iteamScriptDoiMatKhau_Click);
@@ -1030,6 +1018,56 @@
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
+            // 
+            // clTenMay
+            // 
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clTenMay.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clTenMay.FillWeight = 52.76796F;
+            this.clTenMay.HeaderText = "Tên máy";
+            this.clTenMay.Name = "clTenMay";
+            this.clTenMay.ReadOnly = true;
+            this.clTenMay.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.clTenMay.Width = 112;
+            // 
+            // clNDSuaChua
+            // 
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clNDSuaChua.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clNDSuaChua.FillWeight = 128.2357F;
+            this.clNDSuaChua.HeaderText = "Nội dung sửa chữa";
+            this.clNDSuaChua.Name = "clNDSuaChua";
+            this.clNDSuaChua.ReadOnly = true;
+            this.clNDSuaChua.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.clNDSuaChua.Width = 200;
+            // 
+            // clGhiChu
+            // 
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clGhiChu.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clGhiChu.FillWeight = 116.4632F;
+            this.clGhiChu.HeaderText = "Ghi chú";
+            this.clGhiChu.Name = "clGhiChu";
+            this.clGhiChu.ReadOnly = true;
+            this.clGhiChu.Width = 150;
+            // 
+            // clmTinhTrang
+            // 
+            this.clmTinhTrang.FillWeight = 150F;
+            this.clmTinhTrang.HeaderText = "Tình trạng";
+            this.clmTinhTrang.Name = "clmTinhTrang";
+            this.clmTinhTrang.ReadOnly = true;
+            this.clmTinhTrang.Width = 150;
+            // 
+            // clThanhTien
+            // 
+            this.clThanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clThanhTien.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clThanhTien.FillWeight = 102.5331F;
+            this.clThanhTien.HeaderText = "Thành tiền (VNĐ)";
+            this.clThanhTien.Name = "clThanhTien";
+            this.clThanhTien.ReadOnly = true;
             // 
             // FrmQuanLy
             // 
@@ -1106,7 +1144,7 @@
         private System.Windows.Forms.Label lblTimKiemTheo;
         private System.Windows.Forms.Label lblNguoiNhanMayValue;
         private System.Windows.Forms.Label lblIDMayValue;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.GroupBox grbThongTinDonHang;
         private System.Windows.Forms.Label lblNguoiNhanMay;
@@ -1130,15 +1168,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker timeNgayNhan;
         private System.Windows.Forms.Label lblTongTienValues;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTenMay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNgayNhan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNgayGiao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDChuMay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIDNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnThanhTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clTinhTrang;
         private System.Windows.Forms.ComboBox cbBLoaiTimKiem;
         private System.Windows.Forms.ToolStripMenuItem menuTaiKhoan;
         private System.Windows.Forms.ToolStripMenuItem iteamScriptDoiMatKhau;
@@ -1147,6 +1176,18 @@
         private System.Windows.Forms.Button btnHuyDonHang;
         private System.Windows.Forms.TextBox txtIDNhanVienSuaMay;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTenMay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNgayNhan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNgayGiao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDChuMay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIDNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmIDNVSuaMay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnThanhTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTinhTrang;
+        private System.Windows.Forms.ComboBox cbbLoaiTinhTrang;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTenMay;
         private System.Windows.Forms.DataGridViewTextBoxColumn clNDSuaChua;
         private System.Windows.Forms.DataGridViewTextBoxColumn clGhiChu;
