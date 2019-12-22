@@ -43,7 +43,7 @@
             // grbDangNhap
             // 
             this.grbDangNhap.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grbDangNhap.BackColor = System.Drawing.Color.Tomato;
+            this.grbDangNhap.BackColor = System.Drawing.Color.White;
             this.grbDangNhap.BackgroundImage = global::QuanLyTTSCMT.Properties.Resources.rext2;
             this.grbDangNhap.Controls.Add(this.pictureBox2);
             this.grbDangNhap.Controls.Add(this.pictureBox1);

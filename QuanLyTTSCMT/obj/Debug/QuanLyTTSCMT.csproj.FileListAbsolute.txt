@@ -117,7 +117,6 @@ C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\bin\Debug\EntityFramework.dll
 C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\bin\Debug\EntityFramework.xml
 C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.csprojAssemblyReference.cache
 C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.FrmDangNhap.resources
 C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.FrmDoiMatKhau.resources
 C:\Users\DatPT\Do_An\TTSCMT_UTE\QuanLyTTSCMT\obj\Debug\QuanLyTTSCMT.Model.FrmQuanLy.resources

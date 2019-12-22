@@ -1027,7 +1027,7 @@
             this.clTenMay.HeaderText = "Tên máy";
             this.clTenMay.Name = "clTenMay";
             this.clTenMay.ReadOnly = true;
-            this.clTenMay.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.clTenMay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clTenMay.Width = 112;
             // 
             // clNDSuaChua

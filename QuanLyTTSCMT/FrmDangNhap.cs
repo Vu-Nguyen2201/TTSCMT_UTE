@@ -33,19 +33,29 @@ namespace QuanLyTTSCMT
             {
                 if (nhanVien.TenTaiKhoan == txtTenTaiKhoan.Text.Trim() && nhanVien.MKTaiKhoan == txtMatKhau.Text.Trim())
                 {
-                    NguoiSuDung.ID = nhanVien.ID;
+                    //NguoiSuDung.ID = nhanVien.ID;
                     kiemTra = true;
-                    if (nhanVien.LaQuanLy == true)
+                    this.Hide();
+                    FrmQuanLy frm = new FrmQuanLy();
+                    DialogResult dialog= frm.ShowDialog();
+                    this.Show();
+                    if(dialog==DialogResult.OK)
                     {
-                        this.Hide();
-                        (new FrmQuanLy()).ShowDialog();
+                        txtTenTaiKhoan.Text = "";
+                        txtMatKhau.Text = "";
+                        this.Show();
                     }
-                    else
-                    {
-                        this.Hide();
-                        (new FrmQuanLy()).ShowDialog();
-                        //(new FrmNhanVien()).ShowDialog();
-                    }
+                    //if (nhanVien.LaQuanLy == true)
+                    //{
+                    //    this.Hide();
+                    //    (new FrmQuanLy()).ShowDialog();
+                    //}
+                    //else
+                    //{
+                    //    this.Hide();
+                    //    (new FrmQuanLy()).ShowDialog();
+                    //    //(new FrmNhanVien()).ShowDialog();
+                    //}
                     break;
                 }
             }

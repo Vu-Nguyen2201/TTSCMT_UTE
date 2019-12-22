@@ -135,7 +135,7 @@ namespace QuanLyTTSCMT.Model
                 string ID = txtIDMHoacMSSV.Text.Trim();
                 if (ID == "")
                     MessageBox.Show("Bạn hãy nhập ID Máy cần tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if (!int.TryParse(ID, out int a))
+                else if (!UInt16.TryParse(ID, out UInt16 a))
                 {
                     MessageBox.Show("ID không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -186,7 +186,6 @@ namespace QuanLyTTSCMT.Model
                     MessageBox.Show("Bạn hãy nhập MSSV Chủ Máy cần tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-
                     string tenMay, nDSuaChua, ghiChu, thanhTien, tinhTrang;
                     DateTime NgayGiao;
                     int soHang = 0;
@@ -385,8 +384,11 @@ namespace QuanLyTTSCMT.Model
             DialogResult luaChon = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (luaChon == DialogResult.Yes)
             {
-                this.Hide();
-                (new FrmDangNhap()).ShowDialog();
+
+                this.DialogResult = DialogResult.OK;
+                //(new FrmDangNhap()).ShowDialog();
+                //this.Hide();
+                this.Close();
             }
 
         }
@@ -409,43 +411,48 @@ namespace QuanLyTTSCMT.Model
                 txtIDMHoacMSSV.Text = ID.ToString();
                 cbBLoaiTimKiem.Text = "ID Máy";
                 dgvThongTinDonHang.Rows.Clear();
-                string tenMay, nDSuaChua, ghiChu, thanhTien, tinhTrang;
-                DateTime NgayGiao;
-                int ketQua = NguoiSuDungRoot.timDonHangTheoIDMay(ID, out tenMay, out nDSuaChua, out ghiChu, out thanhTien, out NgayGiao, out tinhTrang);
-                dgvThongTinDonHang.Rows.Add();
-                dgvThongTinDonHang.Rows[0].Cells[0].Value = tenMay;
-                dgvThongTinDonHang.Rows[0].Cells[1].Value = nDSuaChua;
-                dgvThongTinDonHang.Rows[0].Cells[2].Value = ghiChu;
-                dgvThongTinDonHang.Rows[0].Cells[3].Value = tinhTrang;
-                dgvThongTinDonHang.Rows[0].Cells[4].Value = thanhTien;
-                if (tinhTrang == "Đã hủy")
-                {
-                    btnTraMay.Visible = false;
-                    btnHuyDonHang.Visible = false;
-                    MessageBox.Show("Đơn hàng này đã bị hủy vào lúc:" + NgayGiao, "Thông báo", MessageBoxButtons.OK
-                        , MessageBoxIcon.Information);
-                }
-                else if (ketQua == 0)
-                {
-                    btnTraMay.Visible = true;
-                    btnHuyDonHang.Visible = true;
-                }
-                else
-                {
-                    //  if (tinhTrang == 1)
-                    MessageBox.Show("Đơn hàng có ID=" + ID + " đã được giao vào lúc " + NgayGiao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //else
-                    //  MessageBox.Show("Không có đơn hàng nào ứng với ID = " + ID, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btnTraMay.Visible = false;
-                    btnHuyDonHang.Visible = false;
-                }
+                btnTimKiem_Click(sender, e);
+                //string tenMay, nDSuaChua, ghiChu, thanhTien, tinhTrang;
+                //DateTime NgayGiao;
+                //int ketQua = NguoiSuDungRoot.timDonHangTheoIDMay(ID, out tenMay, out nDSuaChua, out ghiChu, out thanhTien, out NgayGiao, out tinhTrang);
+                //dgvThongTinDonHang.Rows.Add();
+                //dgvThongTinDonHang.Rows[0].Cells[0].Value = tenMay;
+                //dgvThongTinDonHang.Rows[0].Cells[1].Value = nDSuaChua;
+                //dgvThongTinDonHang.Rows[0].Cells[2].Value = ghiChu;
+                //dgvThongTinDonHang.Rows[0].Cells[3].Value = tinhTrang;
+                //dgvThongTinDonHang.Rows[0].Cells[4].Value = thanhTien;
+                //if (tinhTrang == "Đã hủy")
+                //{
+                //    btnTraMay.Visible = false;
+                //    btnHuyDonHang.Visible = false;
+                //    MessageBox.Show("Đơn hàng này đã bị hủy vào lúc:" + NgayGiao, "Thông báo", MessageBoxButtons.OK
+                //        , MessageBoxIcon.Information);
+                //}
+                //else if (ketQua == 0)
+                //{
+                //    btnTraMay.Visible = true;
+                //    btnHuyDonHang.Visible = true;
+                //}
+                //else
+                //{
+                //    //  if (tinhTrang == 1)
+                //    MessageBox.Show("Đơn hàng có ID=" + ID + " đã được giao vào lúc " + NgayGiao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    //else
+                //    //  MessageBox.Show("Không có đơn hàng nào ứng với ID = " + ID, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    btnTraMay.Visible = false;
+                //    btnHuyDonHang.Visible = false;
+                //}
             }
         }
         #endregion
         #region Khi ấn nút tắt form
         private void FrmQuanLy_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if(DialogResult!=DialogResult.OK)
+            {
+                 Application.Exit();
+            }
+
         }
         #endregion
         #region Khi thời gian bắt đầu hoặc kết thúc trong tab Thống kê thay đổi
