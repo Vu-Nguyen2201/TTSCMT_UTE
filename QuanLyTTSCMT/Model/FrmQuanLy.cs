@@ -349,7 +349,7 @@ namespace QuanLyTTSCMT.Model
                     if (loaiTinhTrang == "Tất cả")
                         MessageBox.Show("Từ " + timeTuNgay.Value + " đến " + timeDenNgay.Value + " không có đơn hàng nào được thêm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Từ " + timeTuNgay.Value + " đến " + timeDenNgay.Value + " không có đơn hàng nào có loại " + loaiTinhTrang, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Từ " + timeTuNgay.Value + " đến " + timeDenNgay.Value + " không có đơn hàng nào có loại tình trạng " + loaiTinhTrang, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             #endregion
             #region Xuất ra form tổng tiền các máy đã giao
