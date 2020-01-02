@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_QuanLyTTSCMTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LapTop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenMay" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NgayNhan" Type="datetime" Nullable="false" />
+    <Property Name="NgayGiao" Type="datetime" Nullable="false" />
+    <Property Name="NDSuaChua" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="ThanhTien" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDNguoiNhanMay" Type="int" Nullable="false" />
+    <Property Name="IDChuMay" Type="int" Nullable="false" />
+    <Property Name="IDNguoiSuaMay" Type="int" Nullable="false" />
+    <Property Name="TinhTrang" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenTaiKhoan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MKTaiKhoan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LaQuanLy" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_LapTop_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="LapTop" Type="Self.LapTop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LapTop">
+        <PropertyRef Name="IDChuMay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LapTop_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="LapTop" Type="Self.LapTop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LapTop">
+        <PropertyRef Name="IDNguoiNhanMay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_QuanLyTTSCMTModelStoreContainer">
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LapTop" EntityType="Self.LapTop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LapTop_KhachHang" Association="Self.FK_LapTop_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="LapTop" EntitySet="LapTop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LapTop_NhanVien" Association="Self.FK_LapTop_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="LapTop" EntitySet="LapTop" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -11,11 +11,9 @@ using QuanLyTTSCMT.Model;
 using System.Collections;
 namespace QuanLyTTSCMT.Model
 {
-
     public partial class FrmQuanLy : Form
     {
         private Nguoi NguoiSuDungRoot;
-
         public FrmQuanLy()
         {
             InitializeComponent();
@@ -384,15 +382,12 @@ namespace QuanLyTTSCMT.Model
             DialogResult luaChon = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (luaChon == DialogResult.Yes)
             {
-
                 this.DialogResult = DialogResult.OK;
                 //(new FrmDangNhap()).ShowDialog();
                 //this.Hide();
                 this.Close();
             }
-
         }
-        
         #endregion
         #region Nút đổi mật khẩu
 
@@ -793,8 +788,6 @@ namespace QuanLyTTSCMT.Model
         }
 
         #endregion
-
-
     }
 }
 

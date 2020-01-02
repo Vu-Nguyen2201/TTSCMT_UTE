@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTTSCMT.Model
+namespace QuanLyTTSCMT
 {
     using System;
     using System.Collections.Generic;

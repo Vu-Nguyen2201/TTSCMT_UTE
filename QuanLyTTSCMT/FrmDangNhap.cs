@@ -33,7 +33,7 @@ namespace QuanLyTTSCMT
             {
                 if (nhanVien.TenTaiKhoan == txtTenTaiKhoan.Text.Trim() && nhanVien.MKTaiKhoan == txtMatKhau.Text.Trim())
                 {
-                    //NguoiSuDung.ID = nhanVien.ID;
+                    NguoiSuDung.ID = nhanVien.ID;
                     kiemTra = true;
                     this.Hide();
                     FrmQuanLy frm = new FrmQuanLy();
